@@ -59,3 +59,17 @@ h1 {
     margin: 5rem 0;
   }
   
+  .svg__brand {
+    fill: #71b68a;
+}
+
+.nav__brand-image {
+    height: 6rem;
+    width: auto;
+    vertical-align: bottom;
+}
+
+/* Pour ajouter l'effet de survol mentionné dans la transcription */
+.nav__brand:hover .svg__brand {
+    fill: #8acca1; /* Une couleur légèrement plus claire */
+}
