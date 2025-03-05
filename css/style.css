@@ -1,26 +1,31 @@
+/*##### GENERAL GENERAL GENERAL GENERAL ####*/
+
 :root {
     --blue: #113343;
     --orange: #F35A39;
+    --green: #006A4E;
+    --grey:#e8eeea;
 }
-
 
 *, ::before, ::after {
 margin:0;
 padding:0;
 box-sizing:border-box; 
 }
-button {border:none;}
+
 html {
     font-size:10px;
 }
 
 body {
     font-size: 2rem;
+  
 }
 
+/*##### NAV NAV NAV NAV NAV NAV ####*/
 nav {
     background: var(--blue);
-    padding: 1rem;;
+    padding: 1rem;
     
 }
 
@@ -44,23 +49,11 @@ nav ul li a.new__entry__item {
     border: 2px solid var(--orange);
     padding: 1rem;
     border-radius: 1rem;
-  
-    
 }
 
-h1 {
-    font-family: "Anton", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: var(--blue);
-    text-transform: uppercase;
-    font-size:10rem;
-    text-align: center;
-    margin: 5rem 0;
-  }
-  
-  .svg__brand {
-    fill: #71b68a;
+ 
+.svg__brand {
+    fill: var(--green);
 }
 
 .nav__brand-image {
@@ -74,7 +67,6 @@ h1 {
     fill: #8acca1; /* Une couleur légèrement plus claire */
 }
 
-
 .svg__plus {
     fill: none;
     stroke: #f3f4f5;
@@ -84,4 +76,64 @@ h1 {
 }
 .new__entry__item:hover .svg__plus {
     stroke: var(--blue);
+}
+
+/*##### MAIN MAIN MAIN MAIN MAIN MAIN ####*/
+main {
+    max-width:1200px;
+    margin: 0 auto;}
+h1 {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--blue);
+    text-transform: uppercase;
+    font-size:10rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+.card {
+    display: flex;
+    background: var(--grey);
+    border-radius: 2rem;
+
+}
+.card__img {
+    max-width: 500px;
+    height: auto; 
+    object-fit: cover;
+    border-radius: 2rem;
+}
+.card__left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    padding: 1rem 2rem;
+}
+.card > * {
+    /*flex: 1 1 50%;*/
+    min-width: 0;
+}
+
+.card__left__subtitle, .card__left__title {
+
+    font-family: "Anton", sans-serif;
+}
+.card__left__subtitle {
+    color: var(--green);
+    font-weight: 300;
+    
+}
+.card__left__title {
+    font-family: "Anton", sans-serif;
+   
+}
+
+.card__left__trait {
+    border: 1px solid var(--green);
+    width: 180px;
+}
+.card__left__text {
+
 }
