@@ -21,7 +21,7 @@
                 </a>
                 
             <li><a class="nav__item new__entry__item"><img src="./images/svg/plus.svg" alt="icon plus">
-                New Entry</button></a></li>
+                New Entry</a></li>
         </ul>
     </nav>
   </header>
