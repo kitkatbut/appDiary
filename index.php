@@ -24,8 +24,18 @@
         </li>
                 
                 
-            <li><a class="nav__item new__entry__item"><img src="./images/svg/plus.svg" alt="icon plus">
-                New Entry</a></li>
+            <li>
+                <a href="form.php" class="nav__item new__entry__item" aria-hidden="true">
+                <!--<img src="./images/svg/plus.svg" alt="icon plus">-->
+                <svg width="44.4901230052" height="44.4901230053" viewBox="0 0 44.4901230052 44.4901230053"class="nav__plus__image">
+                   <g class="svg__plus">
+                        <circle  cx="22.2450615026" cy="22.2450615026" r="21.2450615026"/>
+                        <line  x1="22.2450615026" y1="13.4699274037" x2="22.2450615026" y2="31.0201956015"/>
+                        <line  x1="31.0201956015" y1="22.2450658041" x2="13.4699274037" y2="22.2450572011"/>
+                    </g>
+                </svg>
+                New Entry</a>
+            </li>
         </ul>
     </nav>
   </header>

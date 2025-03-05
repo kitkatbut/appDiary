@@ -1,6 +1,6 @@
 :root {
     --blue: #113343;
-    --orange: orange;
+    --orange: #F35A39;
 }
 
 
@@ -72,4 +72,16 @@ h1 {
 /* Pour ajouter l'effet de survol mentionné dans la transcription */
 .nav__brand:hover .svg__brand {
     fill: #8acca1; /* Une couleur légèrement plus claire */
+}
+
+
+.svg__plus {
+    fill: none;
+    stroke: #f3f4f5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+}
+.new__entry__item:hover .svg__plus {
+    stroke: var(--blue);
 }
