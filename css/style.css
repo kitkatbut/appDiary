@@ -22,6 +22,9 @@ body {
   
 }
 
+li {list-style-type: none;}
+a {text-decoration: none;
+color:inherit;}
 /*##### NAV NAV NAV NAV NAV NAV ####*/
 
 nav {
@@ -157,4 +160,22 @@ h1 {
    .card {
     margin-bottom: 2rem;
    }
+
+   ul.card__pagination {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    }
+
+    ul.card__pagination li {
+        border: 1px solid #212121;
+        padding: .5rem 1rem;
+        border-radius: 1rem;
+        font-weight: 600;
+    }
+
+    ul.card__pagination li:hover, ul.card__pagination li:active {
+        border-color:var(--green);
+        color:var(--green);
+    }
 }
