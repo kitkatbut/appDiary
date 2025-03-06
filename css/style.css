@@ -207,6 +207,7 @@ input, textarea {
         background-size: cover;
         opacity:0.1;
         z-index: -1;
+        min-height: 100rem;
     }
     
  

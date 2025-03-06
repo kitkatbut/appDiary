@@ -1,47 +1,39 @@
-<?php require_once 'header.php'; ?>
+<?php 
+    require_once './inc/db.inc.php'; 
+    require_once 'header.php'; 
+    require_once 'nav.php';
 
-<?php require_once 'nav.php'; ?>
+    $stmt = $pdo->prepare("SELECT * FROM entries");
+    $stmt->execute();
+    $resultats  =  $stmt->fetchAll();
+
+?>
+
+
     
     <main class="main">
         <h1>App Diary</h1>
         <section class="container__boxed card__container">
 
+
+     <?php   
+    if((count($resultats)) > 0) {
+        foreach($resultats as $resultat) :?>
+           
             <div class="card">
                 <img src="./images/pexels-tranmautritam-68761.jpg" alt="Homme lisant livre intitulé space encyclopedia" class="card__right card__img">
                 <div class="card__left">
-                    <p class="card__left__subtitle">WEEK 1</p>
-                    <h2 class="card__left__title">Lorem impsum</h2>
+                    <p class="card__left__subtitle"><?php  echo htmlspecialchars( $resultat['created_at']);?></p>
+                    <h2 class="card__left__title"> <?php  echo htmlspecialchars( $resultat['title']);?></h2>
                     <hr class="card__left__trait">
-                    <p class="card__left__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolores consectetur distinctio blanditiis a asperiores. Voluptatem distinctio, suscipit molestias, dignissimos accusamus facere, debitis consequuntur cumque deserunt qui nemo maiores unde?</p>
+                    <p class="card__left__text"><?php  echo htmlspecialchars( $resultat['message']);?></p>
                 </div>
             </div>
-            <div class="card">
-                <img src="./images/pexels-lumn-167682.jpg" alt="Homme lisant livre intitulé space encyclopedia" class="card__right card__img">
-                <div class="card__left">
-                    <p class="card__left__subtitle">WEEK 1</p>
-                    <h2 class="card__left__title">Lorem impsum</h2>
-                    <hr class="card__left__trait">
-                    <p class="card__left__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolores consectetur distinctio blanditiis a asperiores. Voluptatem distinctio, suscipit molestias, dignissimos accusamus facere, debitis consequuntur cumque deserunt qui nemo maiores unde?</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="./images/pexels-kaushal-moradiya-2781195.jpg" alt="Homme lisant livre intitulé space encyclopedia" class="card__right card__img">
-                <div class="card__left">
-                    <p class="card__left__subtitle">WEEK 1</p>
-                    <h2 class="card__left__title">Lorem impsum</h2>
-                    <hr class="card__left__trait">
-                    <p class="card__left__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolores consectetur distinctio blanditiis a asperiores. Voluptatem distinctio, suscipit molestias, dignissimos accusamus facere, debitis consequuntur cumque deserunt qui nemo maiores unde?</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="./images/pexels-canva-studio-3153199.jpg" alt="Homme lisant livre intitulé space encyclopedia" class="card__right card__img">
-                <div class="card__left">
-                    <p class="card__left__subtitle">WEEK 1</p>
-                    <h2 class="card__left__title">Lorem impsum</h2>
-                    <hr class="card__left__trait">
-                    <p class="card__left__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolores consectetur distinctio blanditiis a asperiores. Voluptatem distinctio, suscipit molestias, dignissimos accusamus facere, debitis consequuntur cumque deserunt qui nemo maiores unde?</p>
-                </div>
-            </div>
+        <?php endforeach;?>
+  <?php  } ?>
+  
+
+           
     
             <!-- pagination -->
              <ul class="card__pagination">
