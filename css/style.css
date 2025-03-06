@@ -87,7 +87,7 @@ nav ul li a.new__entry__item {
 }
 
 /*##### MAIN MAIN MAIN MAIN MAIN MAIN ####*/
-main {
+section.card__container {
     max-width:1200px;
     margin: 0 auto;}
 h1 {
@@ -98,7 +98,7 @@ h1 {
     text-transform: uppercase;
     font-size:6rem;
     text-align: center;
-    margin: 2rem 0;
+    padding: 2rem 0;
 }
 .card {
     display: flex;
@@ -148,6 +148,29 @@ h1 {
 
 
 @media screen and (min-width:768px) {
+    .main {
+        position: relative;
+    }
+    .main::before, .main::after {
+        content: "";
+        display: block;
+        background: url('../images/SVG/bg-lines.svg');
+        width: 15rem;
+        position: absolute;
+        top:0;
+        bottom:0;
+        background-position: right center;
+        background-size: cover;
+    }
+    
+ 
+    .main::after {
+
+        
+          transform: scaleX(-1);
+          right: 0;
+
+    }
    .card, nav ul {
     flex-direction: row;
    }
