@@ -52,11 +52,12 @@ nav ul li a, nav ul li a.new__entry__item {
     gap: 2rem;
 }
 
-nav ul li a.new__entry__item {
+nav ul li a.new__entry__item, .btn__submit__contact__form {
     background: var(--orange);
     border: 2px solid var(--orange);
     padding: 1rem;
     border-radius: 1rem;
+    color: #fff;
 }
 
  
@@ -87,7 +88,7 @@ nav ul li a.new__entry__item {
 }
 
 /*##### MAIN MAIN MAIN MAIN MAIN MAIN ####*/
-section.card__container {
+section.card__container, .form__container {
     max-width:1200px;
     margin: 0 auto;}
 h1 {
@@ -152,8 +153,44 @@ footer {
     display: flex;
     gap: 2rem;
     padding: 10rem 3rem;
+    margin-top: 2rem;
 }
 footer div {flex: 1;}
+
+/*##### FORM FORM FORM FORM FORM FORM ####*/
+.form__container {
+    display: flex;
+    flex-direction: column;
+}
+.form__group {
+    border: 1px solid var(--grey);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #e8eeea;
+    display: flex;
+   margin-bottom:1rem;
+}
+.form__group__column {
+    flex-direction: column;
+}
+.form__group input {
+    flex:1;
+}
+
+label {
+    min-width: 70px;
+    color: var(--blue);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+input, textarea {
+    border: 2px solid var(--green);
+}
+
+.btn__submit__contact__form {
+    align-self: flex-end; 
+}
 @media screen and (min-width:768px) {
     .main {
         position: relative;

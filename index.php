@@ -4,7 +4,7 @@
     
     <main class="main">
         <h1>App Diary</h1>
-        <section class="card__container">
+        <section class="container__boxed card__container">
 
             <div class="card">
                 <img src="./images/pexels-tranmautritam-68761.jpg" alt="Homme lisant livre intitulé space encyclopedia" class="card__right card__img">
