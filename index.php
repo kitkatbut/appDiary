@@ -2,11 +2,17 @@
     require_once './inc/db.inc.php'; 
     require_once 'header.php'; 
     require_once 'nav.php';
+    
+    date_default_timezone_set('Europe/Paris');
+    
 
     $notesPerPage = 2;
     $currentPage = (int) ($_GET['page'] ?? 1);
     $offset = (int) ($currentPage - 1 ) * $notesPerPage;
-    $stmt = $pdo->prepare("SELECT * FROM entries LIMIT :notesPerPage OFFSET :offset ");
+    $stmt = $pdo->prepare("SELECT * 
+                            FROM entries  
+                            LIMIT :notesPerPage 
+                            OFFSET :offset  ");
     $stmt->bindValue(':notesPerPage', $notesPerPage, PDO::PARAM_INT);
     $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
     $stmt->execute();
@@ -20,6 +26,7 @@
 
     $nbPages = ceil($nbNotes / $notesPerPage);
  
+
 
 ?>
 
@@ -37,7 +44,16 @@
             <div class="card">
                 <img src="./images/pexels-tranmautritam-68761.jpg" alt="Homme lisant livre intitulé space encyclopedia" class="card__right card__img">
                 <div class="card__left">
-                    <p class="card__left__subtitle"><?php  echo htmlspecialchars( $resultat['created_at']);?></p>
+                    <p class="card__left__subtitle">
+                        <?php  
+                            $createdAtExploded = explode('-', $resultat['created_at']);
+                       
+                            $createdAtTimestamp = mktime(12, 0, 0, $createdAtExploded[1], $createdAtExploded[2], $createdAtExploded[0]);
+                            
+                           
+                            echo htmlspecialchars(date('d-m-Y',$createdAtTimestamp));
+                        ?>
+                    </p>
                     <h2 class="card__left__title"> <?php  echo htmlspecialchars( $resultat['title']);?></h2>
                     <hr class="card__left__trait">
                     <p class="card__left__text"><?php  echo htmlspecialchars( $resultat['message']);?></p>
