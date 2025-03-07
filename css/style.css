@@ -242,10 +242,12 @@ input, textarea {
         padding: .5rem 1rem;
         border-radius: 1rem;
         font-weight: 600;
+      
     }
 
-    ul.card__pagination li:hover, ul.card__pagination li:active {
+    ul.card__pagination li:hover, ul.card__pagination li:active, .pagination__link--active {
         border-color:var(--green);
-        color:var(--green);
+        color:var(--grey);
+        background-color: var(--green);
     }
 }

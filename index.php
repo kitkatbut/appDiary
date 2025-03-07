@@ -3,9 +3,23 @@
     require_once 'header.php'; 
     require_once 'nav.php';
 
-    $stmt = $pdo->prepare("SELECT * FROM entries");
+    $notesPerPage = 2;
+    $currentPage = (int) ($_GET['page'] ?? 1);
+    $offset = (int) ($currentPage - 1 ) * $notesPerPage;
+    $stmt = $pdo->prepare("SELECT * FROM entries LIMIT :notesPerPage OFFSET :offset ");
+    $stmt->bindValue(':notesPerPage', $notesPerPage, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
     $stmt->execute();
     $resultats  =  $stmt->fetchAll();
+
+
+
+    $stmtNbNotes = $pdo->prepare('SELECT COUNT(*) AS `nbNotesTotal` FROM entries');
+    $stmtNbNotes->execute();
+    $nbNotes = $stmtNbNotes->fetch()['nbNotesTotal'];
+
+    $nbPages = ceil($nbNotes / $notesPerPage);
+ 
 
 ?>
 
@@ -36,14 +50,24 @@
            
     
             <!-- pagination -->
+          
              <ul class="card__pagination">
-                <li><a href="#">&lt;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
+               
+                <?php if($currentPage > 1) :?>
+                    <li><a href="index.php?<?php echo http_build_query(['page' => ($currentPage - 1)]); ?>">&lt;</a></li>
+                <?php endif; ?>
+
+                <?php for($x = 1; $x <= $nbPages; $x++): ?>
+                    <li class="<?php if($currentPage === $x):?>pagination__link--active<?php endif;?>"><a 
+                            href="index.php?<?php echo http_build_query(['page' =>$x]);?>">
+                        <?php echo $x ?>
+                    </a></li>
+                <?php endfor; ?>
+                <?php if($currentPage < $nbPages) :?>
+                    <li><a href="index.php?<?php echo http_build_query(['page' => ($currentPage + 1)]); ?>">&gt;</a></li>
+                <?php endif; ?>
+               
+             
              </ul>
         </section>
     </main>
