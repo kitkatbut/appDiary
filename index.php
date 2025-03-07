@@ -39,10 +39,18 @@
 
      <?php   
     if((count($resultats)) > 0) {
+        
         foreach($resultats as $resultat) :?>
            
             <div class="card">
-                <img src="./images/pexels-tranmautritam-68761.jpg" alt="Homme lisant livre intitulé space encyclopedia" class="card__right card__img">
+                
+               <?php if(!empty($resultat['image_path'])) :?>
+              
+                        <img src="<?php echo htmlspecialchars($resultat['image_path']); ?>" alt="Image de " class="card__right card__img">
+                <?php else: ?>
+                <img src="./images/default.jpg" alt="Image de " class="card__right card__img">
+                <?php endif; ?>
+                
                 <div class="card__left">
                     <p class="card__left__subtitle">
                         <?php  
